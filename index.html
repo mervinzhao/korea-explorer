@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Korea materials and products explorer</title>
+<meta name="description" content="Where Korea's export economy depends on critical minerals, how exposed each input is, and where Korea already holds strengths it can build on. Draft for discussion.">
+<style>
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg: #ffffff; --surface: #f7f7f4; --surface2: #ffffff;
+  --text-primary: #16160f; --text-secondary: #57564f; --text-muted: #86847c;
+  --border: rgba(22,22,15,0.14); --placeholder-bg: #eeede8; --placeholder-text: #b4b2a9;
+  --tag-e-bg: #e6f1fb; --tag-e-text: #0c447c;
+  --tag-d-bg: #faece7; --tag-d-text: #712b13;
+  --tag-p-bg: #faeeda; --tag-p-text: #633806;
+  --risk-vhigh: #791f1f; --risk-high: #a32d2d; --risk-mod: #854f0b; --risk-low: #3b6d11;
+  --opp-vhigh: #26215c; --opp-high: #3c3489; --opp-mod: #7f77dd; --opp-low: #9a988f;
+  --fit-pm: #1d6b64; --fit-dsu: #22548f; --fit-sfp: #9a2f6a; --fit-for: #8a5a07; --fit-out: #8f8d85;
+  --btn-bg: #ffffff; --btn-active-bg: #16160f; --btn-active-text: #ffffff;
+  --highlight: #f0a927; --tooltip-bg: #16160f; --tooltip-text: #ffffff;
+  --scrim: rgba(22,22,15,0.35); --focus: #2563eb; --outline: rgba(22,22,15,0.38);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16160f; --surface: #201f19; --surface2: #262520;
+    --text-primary: #f1efe8; --text-secondary: #c3c2b7; --text-muted: #8b8a82;
+    --border: rgba(241,239,232,0.16); --placeholder-bg: #232219; --placeholder-text: #5f5e5a;
+    --tag-e-bg: #0c447c; --tag-e-text: #b5d4f4;
+    --tag-d-bg: #712b13; --tag-d-text: #f5c4b3;
+    --tag-p-bg: #633806; --tag-p-text: #fac775;
+    --risk-vhigh: #f7c1c1; --risk-high: #f09595; --risk-mod: #f0a927; --risk-low: #97c459;
+    --opp-vhigh: #cecbf6; --opp-high: #afa9ec; --opp-mod: #8f88e6; --opp-low: #77766f;
+    --fit-pm: #6fcabf; --fit-dsu: #8db6ee; --fit-sfp: #eaa0c8; --fit-for: #e8b75c; --fit-out: #7a7972;
+    --btn-bg: #262520; --btn-active-bg: #f1efe8; --btn-active-text: #16160f;
+    --tooltip-bg: #f1efe8; --tooltip-text: #16160f;
+    --scrim: rgba(0,0,0,0.55); --focus: #8db6ee; --outline: rgba(241,239,232,0.4);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #16160f; --surface: #201f19; --surface2: #262520;
+  --text-primary: #f1efe8; --text-secondary: #c3c2b7; --text-muted: #8b8a82;
+  --border: rgba(241,239,232,0.16); --placeholder-bg: #232219; --placeholder-text: #5f5e5a;
+  --tag-e-bg: #0c447c; --tag-e-text: #b5d4f4;
+  --tag-d-bg: #712b13; --tag-d-text: #f5c4b3;
+  --tag-p-bg: #633806; --tag-p-text: #fac775;
+  --risk-vhigh: #f7c1c1; --risk-high: #f09595; --risk-mod: #f0a927; --risk-low: #97c459;
+  --opp-vhigh: #cecbf6; --opp-high: #afa9ec; --opp-mod: #8f88e6; --opp-low: #77766f;
+  --fit-pm: #6fcabf; --fit-dsu: #8db6ee; --fit-sfp: #eaa0c8; --fit-for: #e8b75c; --fit-out: #7a7972;
+  --btn-bg: #262520; --btn-active-bg: #f1efe8; --btn-active-text: #16160f;
+  --tooltip-bg: #f1efe8; --tooltip-text: #16160f;
+  --scrim: rgba(0,0,0,0.55); --focus: #8db6ee; --outline: rgba(241,239,232,0.4);
+}
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 56px); background: var(--bg); }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text-primary); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; -webkit-text-size-adjust: 100%; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 1.75rem 1.25rem 3rem; }
+header h1 { font-size: 23px; font-weight: 500; margin: 0 0 6px; letter-spacing: -0.005em; }
+.sub { font-size: 15px; color: var(--text-secondary); margin: 0 0 6px; line-height: 1.6; max-width: 68ch; }
+.provenance { font-size: 13px; color: var(--text-muted); margin: 0 0 1.1rem; line-height: 1.5; }
+.maintabs { display: flex; gap: 4px; margin: 0 0 1.4rem; border-bottom: 0.5px solid var(--border); position: sticky; top: env(safe-area-inset-top, 0px); background: var(--bg); z-index: 30; }
+.maintab { font-size: 15.4px; padding: 11px 14px 9px; cursor: pointer; color: var(--text-secondary); border: none; background: none; border-bottom: 2px solid transparent; }
+.maintab[aria-selected="true"] { color: var(--text-primary); font-weight: 500; border-bottom-color: var(--text-primary); }
+.pane { display: none; }
+.pane.active { display: block; }
+h2.section { font-size: 16.5px; font-weight: 500; margin: 2rem 0 10px; }
+h2.section:first-child { margin-top: 0; }
+p.lead { font-size: 15px; line-height: 1.65; color: var(--text-secondary); max-width: 70ch; margin: 0 0 1.25rem; }
+
+/* Overview */
+.finding { border-top: 0.5px solid var(--border); padding: 14px 0 16px; }
+.finding:first-of-type { border-top: none; padding-top: 4px; }
+.finding h3 { font-size: 16.5px; font-weight: 500; margin: 0 0 6px; line-height: 1.35; }
+.finding p { font-size: 14.6px; line-height: 1.65; color: var(--text-secondary); margin: 0 0 8px; max-width: 72ch; }
+.assets { display: grid; gap: 10px; margin: 8px 0 4px; }
+.asset { display: grid; grid-template-columns: 12px 1fr; gap: 10px; align-items: start; padding: 10px 12px; border: 0.5px solid var(--border); border-radius: 10px; background: var(--surface); }
+.asset .sw { width: 12px; height: 12px; border-radius: 3px; margin-top: 4px; }
+.asset .prog { font-weight: 500; font-size: 14.6px; }
+.asset .what { font-size: 14px; color: var(--text-secondary); line-height: 1.55; margin: 2px 0 6px; }
+.dates { list-style: none; padding: 0; margin: 6px 0 0; }
+.dates li { display: grid; grid-template-columns: 9.5rem 1fr; gap: 12px; padding: 9px 0; border-top: 0.5px solid var(--border); font-size: 14.3px; line-height: 1.55; }
+.dates li:first-child { border-top: none; }
+.dates .when { font-weight: 500; }
+.dates .what { color: var(--text-secondary); }
+
+/* Tags and chips */
+.tag { display: inline-block; font-size: 11.6px; font-weight: 500; padding: 2px 8px; border-radius: 20px; margin: 0 4px 2px 0; white-space: nowrap; }
+.tag.e { background: var(--tag-e-bg); color: var(--tag-e-text); }
+.tag.d { background: var(--tag-d-bg); color: var(--tag-d-text); }
+.tag.p { background: var(--tag-p-bg); color: var(--tag-p-text); }
+.chip { display: inline-flex; align-items: center; gap: 5px; background: var(--surface2); border: 0.5px solid var(--border); border-radius: 20px; padding: 3px 10px; margin: 2px 3px 2px 0; cursor: pointer; font-weight: 500; font-size: 13.2px; line-height: 1.4; }
+.chip:hover { border-color: var(--text-primary); }
+.chip .cd { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; }
+.chip .sub2 { font-weight: 400; opacity: 0.7; }
+.chiprow { margin: 4px 0 0; }
+
+/* Products */
+table.cands { width: 100%; border-collapse: collapse; font-size: 14.3px; margin-bottom: 1.5rem; }
+table.cands th { text-align: left; font-weight: 500; color: var(--text-muted); font-size: 12.6px; padding: 6px 8px; border-bottom: 0.5px solid var(--border); }
+table.cands td { padding: 8px; border-bottom: 0.5px solid var(--border); vertical-align: top; }
+table.cands tr:last-child td { border-bottom: none; }
+table.cands tr.candrow { cursor: pointer; }
+table.cands tr.candrow:hover td { background: var(--surface); }
+.tagline { font-size: 13.6px; color: var(--text-secondary); line-height: 1.6; margin: 0 0 1rem; }
+.card { border: 0.5px solid var(--border); border-radius: 12px; background: var(--surface); padding: 1rem 1.15rem; margin-bottom: 14px; scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 60px); }
+.card.flash { animation: flashcard 1.8s ease; }
+@keyframes flashcard { 0%,100% { box-shadow: 0 0 0 0 transparent; } 15% { box-shadow: 0 0 0 3px var(--highlight); } }
+.card-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 10px; margin-bottom: 4px; }
+.card-title { font-size: 16.5px; font-weight: 500; margin: 0; }
+.card-context { font-size: 14px; color: var(--text-secondary); margin: 4px 0 10px; line-height: 1.55; max-width: 76ch; }
+.chips-label { color: var(--text-muted); margin-right: 6px; font-size: 13px; }
+.bom-label { font-size: 12.6px; color: var(--text-muted); margin: 12px 0 4px; }
+.bom-row { display: flex; align-items: flex-start; gap: 9px; padding: 6px 0; border-top: 0.5px solid var(--border); font-size: 14.3px; line-height: 1.45; }
+.bom-row:first-of-type { border-top: none; }
+.dot { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; margin-top: 5px; }
+.dot.tool { background: transparent !important; border: 1.5px dashed var(--text-muted); }
+.dot.tool.r-vhigh { border-color: var(--risk-vhigh); } .dot.tool.r-high { border-color: var(--risk-high); } .dot.tool.r-mod { border-color: var(--risk-mod); } .dot.tool.r-low { border-color: var(--risk-low); }
+.dot.none { background: var(--placeholder-bg); border: 1px solid var(--border); }
+.bom-mat { font-weight: 500; min-width: 150px; flex: 0 0 auto; }
+.bom-role { color: var(--text-secondary); font-size: 13.8px; }
+.bom-role .pi { color: var(--text-muted); }
+
+/* Elements */
+.toggle-row { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.toggle-btn { font-size: 14px; padding: 7px 14px; border-radius: 20px; border: 0.5px solid var(--border); background: var(--btn-bg); color: var(--text-primary); cursor: pointer; }
+.toggle-btn[aria-pressed="true"] { background: var(--btn-active-bg); color: var(--btn-active-text); border-color: transparent; }
+.subtoggle { display: flex; gap: 6px; margin: 0 0 10px; }
+.subtoggle .toggle-btn { font-size: 13px; padding: 5px 11px; }
+.lensdesc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 2px 0 10px; max-width: 76ch; }
+.legend { display: flex; gap: 8px 16px; flex-wrap: wrap; font-size: 13.2px; color: var(--text-secondary); margin: 0 0 8px; }
+.legend .sw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.legend .ct { color: var(--text-muted); }
+.markkey { font-size: 12.6px; color: var(--text-muted); margin: 0 0 12px; line-height: 1.5; }
+.markkey .k1 { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: currentColor; margin: 0 4px 1px 0; }
+.markkey .k2 { display: inline-block; width: 12px; height: 10px; border: 1.2px dashed currentColor; border-radius: 2px; margin: 0 4px -1px 0; }
+.table-scroll { overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+.ptable { display: grid; grid-template-columns: repeat(18, 46px); grid-template-rows: repeat(7, 46px) 14px repeat(2, 46px); gap: 3px; width: max-content; }
+.cell { border-radius: 6px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1.5px solid transparent; position: relative; padding: 0; background: none; }
+button.cell.tracked { cursor: pointer; transition: transform 0.1s; }
+button.cell.tracked:hover { transform: scale(1.08); z-index: 2; }
+.cell.sel { border-color: var(--text-primary) !important; }
+.cell .z { position: absolute; top: 2px; left: 4px; font-size: 8.8px; }
+.cell .sym { font-size: 16.5px; font-weight: 500; }
+.cell .mk { position: absolute; top: 4px; right: 4px; width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0.8; }
+.cell.unlisted { border: 1.5px dashed currentColor; }
+.cell.placeholder { background: var(--placeholder-bg); color: var(--placeholder-text); }
+.cell.placeholder .z { opacity: 0.7; }
+.tracked .z { color: inherit; opacity: 0.75; }
+.r-vhigh { background: var(--surface2); background: color-mix(in srgb, var(--risk-vhigh) 22%, var(--surface2)); color: var(--risk-vhigh); }
+.r-high { background: var(--surface2); background: color-mix(in srgb, var(--risk-high) 18%, var(--surface2)); color: var(--risk-high); }
+.r-mod { background: var(--surface2); background: color-mix(in srgb, var(--risk-mod) 18%, var(--surface2)); color: var(--risk-mod); }
+.r-low { background: var(--surface2); background: color-mix(in srgb, var(--risk-low) 18%, var(--surface2)); color: var(--risk-low); }
+.o-vhigh { background: var(--surface2); background: color-mix(in srgb, var(--opp-vhigh) 26%, var(--surface2)); color: var(--opp-vhigh); }
+.o-high { background: var(--surface2); background: color-mix(in srgb, var(--opp-high) 20%, var(--surface2)); color: var(--opp-high); }
+.o-mod { background: var(--surface2); background: color-mix(in srgb, var(--opp-mod) 20%, var(--surface2)); color: var(--opp-mod); }
+.o-low { background: var(--surface2); background: color-mix(in srgb, var(--opp-low) 20%, var(--surface2)); color: var(--text-secondary); }
+.f-pm { background: var(--surface2); background: color-mix(in srgb, var(--fit-pm) 20%, var(--surface2)); color: var(--fit-pm); }
+.f-dsu { background: var(--surface2); background: color-mix(in srgb, var(--fit-dsu) 20%, var(--surface2)); color: var(--fit-dsu); }
+.f-sfp { background: var(--surface2); background: color-mix(in srgb, var(--fit-sfp) 18%, var(--surface2)); color: var(--fit-sfp); }
+.f-for { background: var(--surface2); background: color-mix(in srgb, var(--fit-for) 20%, var(--surface2)); color: var(--fit-for); }
+.f-out { background: var(--surface2); background: color-mix(in srgb, var(--fit-out) 16%, var(--surface2)); color: var(--text-muted); }
+.sw.r-vhigh, .cd.r-vhigh, .dot.r-vhigh { background: var(--risk-vhigh); }
+.sw.r-high, .cd.r-high, .dot.r-high { background: var(--risk-high); }
+.sw.r-mod, .cd.r-mod, .dot.r-mod { background: var(--risk-mod); }
+.sw.r-low, .cd.r-low, .dot.r-low { background: var(--risk-low); }
+.sw.o-vhigh { background: var(--opp-vhigh); } .sw.o-high { background: var(--opp-high); } .sw.o-mod { background: var(--opp-mod); } .sw.o-low { background: var(--opp-low); }
+.sw.f-pm { background: var(--fit-pm); } .sw.f-dsu { background: var(--fit-dsu); } .sw.f-sfp { background: var(--fit-sfp); } .sw.f-for { background: var(--fit-for); } .sw.f-out { background: var(--fit-out); }
+.fblock-label { grid-column: 1 / 3; font-size: 12.1px; color: var(--text-muted); display: flex; align-items: center; }
+
+.elist { display: none; }
+.elist.show { display: block; }
+.egroup h4 { font-size: 13.6px; font-weight: 500; margin: 14px 0 6px; display: flex; align-items: center; gap: 7px; }
+.egroup h4 .ct { color: var(--text-muted); font-weight: 400; }
+.erow { display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center; width: 100%; text-align: left; padding: 7px 8px; border: 0.5px solid var(--border); border-radius: 10px; background: var(--surface2); margin-bottom: 6px; cursor: pointer; }
+.erow .tile { width: 40px; height: 40px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 15px; position: relative; }
+.erow .tile .mk { position: absolute; top: 4px; right: 4px; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.erow .nm { font-weight: 500; font-size: 14.6px; }
+.erow .ds { font-size: 12.6px; color: var(--text-muted); margin-top: 1px; }
+.erow .hint { font-size: 12.6px; color: var(--text-secondary); text-align: right; max-width: 11rem; line-height: 1.35; }
+.tablewrap { display: none; }
+.tablewrap.show { display: block; }
+
+#detail { margin-top: 1.25rem; border: 0.5px solid var(--border); border-radius: 12px; background: var(--surface); padding: 1rem 1.15rem; min-height: 90px; }
+#detail .ph { color: var(--text-muted); font-size: 14.3px; }
+.d-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+#detail h3 { margin: 0 0 3px; font-size: 18px; font-weight: 500; }
+.d-meta { font-size: 13.4px; color: var(--text-secondary); margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.badge { font-size: 12px; padding: 2px 8px; border-radius: 20px; border: 0.5px solid var(--border); background: var(--surface2); color: var(--text-secondary); }
+.drow { display: grid; grid-template-columns: 8.5rem 1fr; gap: 10px; margin-bottom: 10px; font-size: 14.3px; line-height: 1.55; }
+.drow .lbl { color: var(--text-muted); font-size: 12.8px; padding-top: 2px; }
+.tier { display: inline-block; font-size: 12px; font-weight: 500; padding: 1px 8px; border-radius: 20px; margin-right: 6px; vertical-align: 1px; }
+.addnote { display: block; margin-top: 4px; color: var(--text-secondary); font-size: 13.6px; }
+.closebtn { display: none; border: 0.5px solid var(--border); background: var(--surface2); border-radius: 20px; padding: 5px 12px; font-size: 13px; cursor: pointer; flex: 0 0 auto; }
+#scrim { display: none; }
+
+.notes { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 0.5px solid var(--border); font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+.notes h2 { font-size: 15.4px; font-weight: 500; color: var(--text-primary); margin: 0 0 6px; }
+.notes ul { margin: 6px 0 14px; padding-left: 18px; max-width: 80ch; }
+.notes .src { color: var(--text-muted); font-size: 13px; max-width: 90ch; }
+#tooltip { position: fixed; z-index: 60; background: var(--tooltip-bg); color: var(--tooltip-text); font-size: 13.2px; line-height: 1.5; padding: 8px 11px; border-radius: 8px; max-width: 290px; pointer-events: none; opacity: 0; transition: opacity 0.1s; }
+#tooltip.show { opacity: 1; }
+#tooltip b { font-weight: 500; }
+
+
+
+/* Value chain */
+.chainsum { font-size: 15.4px; line-height: 1.6; margin: 0 0 12px; max-width: 72ch; }
+.chain { border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--surface); }
+.stage { display: grid; grid-template-columns: 13.5rem 1fr; gap: 16px; padding: 14px 16px; border-top: 0.5px solid var(--border); }
+.stage:first-child { border-top: none; }
+.st-name { font-weight: 500; font-size: 15px; margin-bottom: 6px; }
+.meter { display: flex; gap: 3px; margin-bottom: 5px; }
+.meter i { width: 18px; height: 8px; border-radius: 2px; background: var(--placeholder-bg); box-shadow: inset 0 0 0 0.5px var(--border); }
+.meter i.on { background: var(--text-primary); box-shadow: none; }
+.st-lvl { font-size: 12.8px; color: var(--text-secondary); }
+.st-row { display: grid; grid-template-columns: 9.5rem 1fr; gap: 10px; font-size: 14.2px; line-height: 1.55; margin-bottom: 6px; }
+.st-lbl { color: var(--text-muted); font-size: 12.8px; padding-top: 1px; }
+.chainnote { font-size: 12.6px; color: var(--text-muted); margin: 6px 0 0; }
+@media (max-width: 720px) {
+  .stage { grid-template-columns: 1fr; gap: 8px; padding: 12px 12px; }
+  .st-side { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .st-name { margin: 0; }
+  .meter { margin: 0; }
+  .st-row { grid-template-columns: 1fr; gap: 1px; }
+}
+
+/* Tracked-but-low tiers must not read as untracked placeholders */
+.cell.tracked.o-low, .cell.tracked.f-out, .erow .tile.o-low, .erow .tile.f-out { background: var(--surface2); color: var(--text-secondary); border: 1.5px solid var(--outline); }
+.cell.tracked.unlisted.o-low, .cell.tracked.unlisted.f-out { border-style: dashed; }
+.sw.f-out, .sw.o-low { box-shadow: inset 0 0 0 1.5px var(--outline); }
+.drow .chip[data-prod] { display: inline-block; border-radius: 12px; }
+.swipehint { display: none; font-size: 12.6px; color: var(--text-muted); margin: -4px 0 8px; }
+@media (max-width: 720px) { .swipehint.show { display: block; } .provenance { font-size: 12.4px; } }
+
+@media (max-width: 720px) {
+  .wrap { padding: 1.1rem 1rem 2.5rem; }
+  header h1 { font-size: 21px; }
+  .maintab { font-size: 15px; padding: 11px 11px 9px; }
+  .ptable { grid-template-columns: repeat(18, 34px); grid-template-rows: repeat(7, 34px) 10px repeat(2, 34px); gap: 2px; }
+  .cell .sym { font-size: 13px; }
+  .cell .z { font-size: 7px; top: 1px; left: 2px; }
+  .cell .mk { top: 3px; right: 3px; width: 4px; height: 4px; }
+  .fblock-label { font-size: 10px; }
+  .drow { grid-template-columns: 1fr; gap: 2px; }
+  .bom-row { flex-wrap: wrap; }
+  .bom-mat { min-width: 0; }
+  .bom-role { flex-basis: 100%; padding-left: 18px; margin-top: -2px; }
+  .dates li { grid-template-columns: 1fr; gap: 1px; }
+  table.cands td:nth-child(2) { white-space: normal; }
+  #detail.sheet { position: fixed; left: 0; right: 0; bottom: 0; margin: 0; z-index: 50; max-height: 78%; overflow-y: auto; border-radius: 16px 16px 0 0; padding: 1rem 1rem calc(1.25rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -8px 30px rgba(0,0,0,0.18); transform: translateY(105%); transition: transform 0.22s ease; }
+  #detail.sheet.open { transform: translateY(0); }
+  #detail.sheet .closebtn { display: inline-block; }
+  #scrim.open { display: block; position: fixed; inset: 0; background: var(--scrim); z-index: 45; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Korea materials and products explorer</h1>
+    <p class="sub">How Korea's export economy depends on critical minerals, how exposed each input is, and and where Korea already holds strengths it can build on. Tap any chip to open its profile.</p>
+    <p class="provenance">Draft for discussion, October 2026. Figures are sourced below, and tiers are working judgments for Korean colleagues to correct.</p>
+  </header>
+
+  <nav class="maintabs" role="tablist" aria-label="Sections">
+    <button class="maintab" role="tab" id="tab-overview" aria-controls="pane-overview" aria-selected="true" data-tab="overview">Overview</button>
+    <button class="maintab" role="tab" id="tab-products" aria-controls="pane-products" aria-selected="false" data-tab="products">Products</button>
+    <button class="maintab" role="tab" id="tab-elements" aria-controls="pane-elements" aria-selected="false" data-tab="elements">Elements</button>
+  </nav>
+
+  <section class="pane active" id="pane-overview" role="tabpanel" aria-labelledby="tab-overview">
+    <p class="lead">Products traces each export line to its mineral inputs. Elements profiles each mineral by sourcing risk and by Korea's room to act. This overview starts with where Korea sits along the chain from mine to finished product.</p>
+
+    <h2 class="section">Where Korea sits on the value chain</h2>
+    <p class="chainsum">Korea leads the world in end products and is strong in base-metal refining, but it is thin in the battery and rare-earth intermediates that connect the two and almost absent from mining at home.</p>
+    <div class="chain"><div class="stage"><div class="st-side"><div class="st-name">Mining</div><div class="meter" role="img" aria-label="Negligible at home"><i class="on"></i><i></i><i></i><i></i><i></i></div><div class="st-lvl">Negligible at home</div></div><div class="st-body"><div class="st-row"><span class="st-lbl">In Korea</span><span>Korea's net import reliance for critical minerals exceeds 99.7%. Sangdong tungsten, back in production in 2026 after closing in 1994, is the notable exception.</span></div><div class="st-row"><span class="st-lbl">Korean-owned abroad</span><span>Selective. POSCO owns lithium brine in Argentina, KOMIR holds a large minority stake in Madagascar's Ambatovy nickel-cobalt mine, and cell and cathode makers hold equity-plus-offtake deals in Australian lithium. KOMIR's overseas role is now being restored after a decade of divestment that ended with the Boleo mine sold for $2 in 2025.</span></div><div class="chiprow"><span class="chip" data-el="W"></span><span class="chip" data-el="Li"></span><span class="chip" data-el="Ni"></span><span class="chip" data-el="Co"></span></div></div></div><div class="stage"><div class="st-side"><div class="st-name">Smelting and refining</div><div class="meter" role="img" aria-label="Strong in base metals"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><div class="st-lvl">Strong in base metals</div></div><div class="st-body"><div class="st-row"><span class="st-lbl">In Korea</span><span>Korea Zinc's Onsan complex turns out more than a million tonnes a year of over ten metals, including about 630 kt of zinc, the largest output of any single smelter. Young Poong, the world's sixth-largest zinc producer, runs the Seokpo smelter, and LS MnM runs Korea's only copper smelter at roughly 600 to 680 kt/yr of cathode. Battery chemicals are emerging through POSCO's lithium hydroxide and nickel refining. Rare-earth separation, magnesium, titanium sponge and polysilicon are absent.</span></div><div class="st-row"><span class="st-lbl">Korean-owned abroad</span><span>Korea Zinc's Sun Metals zinc refinery in Australia and a Tennessee smelter planned from 2029, POSCO's 25 kt/yr lithium hydroxide plant in Argentina, LS Eco Energy's rare-earth metal plant in Vietnam due from late 2026, and Korean equity in Indonesian nickel intermediates.</span></div><div class="chiprow"><span class="chip" data-el="Zn"></span><span class="chip" data-el="Pb"></span><span class="chip" data-el="Cu"></span><span class="chip" data-el="Li"></span><span class="chip" data-el="Nd"></span></div></div></div><div class="stage"><div class="st-side"><div class="st-name">By-product minor metals</div><div class="meter" role="img" aria-label="A hidden strength"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><div class="st-lvl">A hidden strength</div></div><div class="st-body"><div class="st-row"><span class="st-lbl">In Korea</span><span>Korea Zinc recovers antimony, indium, bismuth, tellurium, cadmium, silver and gold from its circuits, with germanium due in 2027 and gallium targeted for 2028. Onsan produces about 10 t of antimony a day.</span></div><div class="st-row"><span class="st-lbl">Korean-owned abroad</span><span>The Tennessee smelter is designed for 12 metals, 11 of them on the US critical list.</span></div><div class="chiprow"><span class="chip" data-el="Sb"></span><span class="chip" data-el="In"></span><span class="chip" data-el="Bi"></span><span class="chip" data-el="Ge"></span><span class="chip" data-el="Ga"></span></div></div></div><div class="stage"><div class="st-side"><div class="st-name">Chemicals and intermediates</div><div class="meter" role="img" aria-label="Thin"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><div class="st-lvl">Thin</div></div><div class="st-body"><div class="st-row"><span class="st-lbl">In Korea</span><span>The weakest link for batteries and magnets. China supplied 96.6% of cathode precursor imports in 2023, spherical graphite comes almost entirely from China, and 88% of NdFeB magnets were Chinese in 2022. LG Chem and others are building precursor plants. High-purity semiconductor chemicals have been a strength since the 2019 localization.</span></div><div class="st-row"><span class="st-lbl">Korean-owned abroad</span><span>LS Eco Energy's Vietnam plant would supply rare-earth metals for magnets it plans to make in the US.</span></div><div class="chiprow"><span class="chip" data-el="Ni"></span><span class="chip" data-el="C"></span><span class="chip" data-el="Nd"></span><span class="chip" data-el="Dy"></span><span class="chip" data-el="F"></span></div></div></div><div class="stage"><div class="st-side"><div class="st-name">Materials and components</div><div class="meter" role="img" aria-label="Strong"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><div class="st-lvl">Strong</div></div><div class="st-body"><div class="st-row"><span class="st-lbl">In Korea</span><span>Cathode materials (POSCO Future M, EcoPro, LG Chem, L&amp;F), silicon wafers (SK siltron, fifth in the world) and battery copper foil. POSCO Future M is Korea's only natural graphite anode maker.</span></div><div class="st-row"><span class="st-lbl">Korean-owned abroad</span><span>Several materials makers have built plants near Korean cell factories in North America and Europe.</span></div><div class="chiprow"><span class="chip" data-prod="batmat"></span><span class="chip" data-el="Si"></span><span class="chip" data-el="Cu"></span><span class="chip" data-el="C"></span></div></div></div><div class="stage"><div class="st-side"><div class="st-name">End products</div><div class="meter" role="img" aria-label="World-leading"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="st-lvl">World-leading</div></div><div class="st-body"><div class="st-row"><span class="st-lbl">In Korea</span><span>Memory chips (over 60% of the global market), OLED displays, LNG carriers, cars and steel. Semiconductor exports alone reached $173.4 billion in 2025.</span></div><div class="st-row"><span class="st-lbl">Korean-owned abroad</span><span>Korean battery makers produce about a fifth of the world's cells and run more than 400 GWh of capacity outside Korea, far more than Japanese or Chinese makers abroad.</span></div><div class="chiprow"><span class="chip" data-prod="memory"></span><span class="chip" data-prod="cells"></span><span class="chip" data-prod="displays"></span><span class="chip" data-prod="ships"></span><span class="chip" data-prod="cars"></span></div></div></div></div>
+    <p class="chainnote">Levels are qualitative, for orientation only.</p>
+
+    <h2 class="section">What the data show</h2>
+    <div class="finding">
+      <h3>Korea's exposure sits in processed forms more than in ore</h3>
+      <p>The deepest single-country dependencies are on refined and intermediate products: cathode precursors (96.6% from China in 2023), lithium hydroxide (about 80%), NdFeB magnets (88% in 2022) and indium (94.2% in 2025). Korea's stated goal is to bring dependence on any single country down to 50% by 2030.</p>
+      <div class="chiprow"><span class="chip" data-el="Ni"></span><span class="chip" data-el="Li"></span><span class="chip" data-el="Nd"></span><span class="chip" data-el="In"></span><span class="chip" data-el="C"></span></div>
+    </div>
+    <div class="finding">
+      <h3>Export controls redirect trade quickly where alternative capacity exists</h3>
+      <p>After China's 2023 controls, its share of Korea's gallium imports fell to 26% and its share of germanium to 15% by 2025, as Germany, the US, Japan and Canada filled the gap. Indium, graphite and tungsten moved the other way over the decade, because no comparable capacity was ready.</p>
+      <div class="chiprow"><span class="chip" data-el="Ga"></span><span class="chip" data-el="Ge"></span><span class="chip" data-el="In"></span><span class="chip" data-el="C"></span><span class="chip" data-el="W"></span></div>
+    </div>
+    <div class="finding">
+      <h3>Import statistics cannot tell diversification from rerouting</h3>
+      <p>Antimony imports shifted from China to Thailand in 2025, but China itself imports Thai and Myanmar concentrate. Whether Korea's exposure actually fell depends on where the metal was mined and smelted, which customs data does not record. Buyers will soon need that proof: from January 2027, US defense procurement bars Chinese content in magnets, tungsten and tantalum from the mine onward.</p>
+      <div class="chiprow"><span class="chip" data-el="Sb"></span><span class="chip" data-el="W"></span><span class="chip" data-el="Ta"></span><span class="chip" data-el="Nd"></span></div>
+    </div>
+    <div class="finding">
+      <h3>Supply shocks have come from several directions</h3>
+      <p>Fluorine chemicals in 2019, urea in 2021, rare earths from 2025 and helium in 2026 each ran through a single processing point or shipping route. The 2019 response shows how fast Korea can move: domestic suppliers qualified high-purity hydrogen fluoride within months.</p>
+      <div class="chiprow"><span class="chip" data-el="F"></span><span class="chip" data-el="Dy"></span><span class="chip" data-el="He"></span></div>
+    </div>
+
+    <h2 class="section">Dates that matter</h2>
+    <ul class="dates">
+      <li><span class="when">1 January 2027</span><span class="what">US defense procurement rules extend the ban on Chinese, Russian, Iranian and North Korean content in rare-earth magnets, tungsten and tantalum to every stage from mining onward, at every subcontract tier.</span></li>
+      <li><span class="when">10 January 2027</span><span class="what">China's suspension of its October 2025 rare-earth controls now runs to this date, after a two-month extension MOFCOM confirmed on 28 September 2026. Its April 2025 licensing of seven medium and heavy rare earths stays in force.</span></li>
+      <li><span class="when">18 February 2027</span><span class="what">EU battery passports become mandatory for EV, light-transport and larger industrial batteries.</span></li>
+      <li><span class="when">18 August 2027</span><span class="what">EU battery due-diligence obligations apply, including supply-chain checks for cobalt, lithium, nickel and natural graphite.</span></li>
+    </ul>
+  </section>
+
+  <section class="pane" id="pane-products" role="tabpanel" aria-labelledby="tab-products">
+    <p class="tagline"><span class="tag e">Economic</span> large export or GDP weight. <span class="tag d">Defense</span> dual-use, critical-infrastructure or military-supply relevance. <span class="tag p">Positional</span> Korea holds an unusually concentrated position in the global market.</p>
+    <table class="cands" aria-label="Products">
+      <thead><tr><th scope="col">Product or component</th><th scope="col">Tags</th></tr></thead>
+      <tbody id="candbody"></tbody>
+    </table>
+    <h2 class="section">Reverse bill of materials</h2>
+    <p class="tagline">Dots show each input's sourcing risk. A dashed dot marks a process input consumed in manufacture rather than embodied in the product.</p>
+    <div id="cards"></div>
+  </section>
+
+  <section class="pane" id="pane-elements" role="tabpanel" aria-labelledby="tab-elements">
+    <div class="toggle-row" role="group" aria-label="Lens">
+      <button class="toggle-btn" data-lens="risk" aria-pressed="true">Sourcing risk</button>
+      <button class="toggle-btn" data-lens="opp" aria-pressed="false">Opportunity</button>
+    </div>
+    <p class="lensdesc" id="lensdesc"></p>
+    <div class="legend" id="legend"></div>
+    <p class="markkey"><span class="k1"></span>Korea's ten strategic minerals. <span class="k2"></span>Added here but not on Korea's 2023 list.</p>
+    <div class="subtoggle" role="group" aria-label="View">
+      <button class="toggle-btn" data-view="table" aria-pressed="true">Periodic table</button>
+      <button class="toggle-btn" data-view="list" aria-pressed="false">List</button>
+    </div>
+    <p class="swipehint" id="swipehint">Swipe sideways to see the whole table.</p>
+    <div class="tablewrap show" id="tablewrap"><div class="table-scroll"><div class="ptable" id="ptable"></div></div></div>
+    <div class="elist" id="elist"></div>
+    <div id="detail" aria-live="polite"><div class="ph">Choose an element to see its profile, or arrive here from a product card.</div></div>
+  </section>
+
+  <section class="notes">
+    <h2>About this draft</h2>
+    <ul>
+      <li>Sourcing-risk tiers draw on 2025 KOMIS import data as analyzed in The Diplomat (June 2026), KITA and Korea Customs figures for 2022 and 2023, IEA and GlobalData concentration data, and live export-control measures. Shares from different years and product definitions are not directly comparable. KOMIS puts China at 71% of 2025 graphite imports, for example, while KITA put synthetic graphite at 93.7% in 2023.</li>
+      <li>Opportunity tiers and value-chain levels are analytical judgments, a starting point for discussion rather than a scored index.</li>
+      <li>The element set follows the 33 critical and 10 strategic minerals designated in February 2023, plus four unlisted elements where Korean industry is exposed: praseodymium, germanium, helium and fluorine. Energy, refined petroleum, petrochemicals and emissions are out of scope.</li>
+      <li>Bill-of-materials entries are informed estimates rather than teardown data. Company capacities and timelines are company-reported.</li>
+      <li>Live situations to refresh: the January 2027 deadline on China's suspended rare-earth controls, helium supply after the 2026 Ras Laffan outage, copper treatment charges and KOMIR's restored overseas role.</li>
+    </ul>
+    <p class="src">Sources: KOMIS, KITA and Korea Customs Service trade data. Ministry of Trade, Industry and Resources releases. KIEP. KOMIR. IEA Global Critical Minerals Outlook 2025 and 2026. GlobalData Global Rare Earths Mining 2026. USGS Mineral Commodity Summaries and Minerals Yearbook. China MOFCOM Announcements 70 and 72 of 2025. DFARS 252.225-7052. ISA contract records. EU Regulations 2023/1542 and 2025/1561. Company releases from Korea Zinc, Almonty Industries, POSCO Holdings, Lynas and the 2011 CBMM consortium. Reporting by The Diplomat, Korea Herald, Korea JoongAng Daily, Korea Economic Daily, Korea Times, Seoul Economic Daily, ETNews, China Briefing, Reuters, Mysteel, Fitch and TrendForce.</p>
+  </section>
+</div>
+<div id="scrim"></div>
+<div id="tooltip" role="tooltip"></div>
+<script>
+(function () {
+  "use strict";
+  var DATA = [{"sym": "Li", "name": "Lithium", "des": "s", "risk": "r-high", "riskNote": "Korea imports essentially all of its lithium. About 80% of lithium hydroxide imports came from China in 2023, although Australia mines most of the spodumene, because conversion is where the concentration sits. POSCO's Gwangyang plant, fed with Pilbara spodumene, and its 25 kt/yr brine-fed plant in Argentina, opened in October 2024, are the main hedges.", "opp": "o-high", "oppNote": "POSCO already converts Australian spodumene at Gwangyang and its own Argentine brine at Güemes, which gives Korea a working base outside Chinese conversion. Conversion capacity and cost decide how far hydroxide imports can fall.", "data": "KITA 2023, POSCO Holdings", "z": 3}, {"sym": "C", "name": "Graphite", "des": "s", "risk": "r-vhigh", "riskNote": "China supplied 71% of Korea's graphite imports in 2025, up from 52% in 2015, and more than 90% of its synthetic graphite in 2023. POSCO Future M makes anode material in Korea but has relied on Chinese spherical graphite. China has required export licenses for graphite since December 2023.", "opp": "o-vhigh", "oppNote": "Korean anode makers supply the demand, but purifying and shaping flake into spherical graphite happens almost entirely in China. That midstream step is where Korea has no domestic foothold.", "data": "KOMIS 2025 via The Diplomat, KITA 2023", "z": 6}, {"sym": "Mn", "name": "Manganese", "des": "s", "risk": "r-high", "riskNote": "Ore is diversified across South Africa, Gabon and Australia, but battery-grade manganese sulfate and electrolytic manganese are refined overwhelmingly in China, where the IEA finds virtually all recent supply growth has gone.", "opp": "o-high", "oppNote": "Ore comes from allied producers. Battery-grade sulfate capacity outside China is what is missing, and Korea's steel and cathode industries supply the demand to anchor it.", "data": "IEA Global Critical Minerals Outlook 2026", "z": 25}, {"sym": "Ni", "name": "Nickel", "des": "s", "risk": "r-high", "riskNote": "Indonesia now mines more than half of the world's nickel, much of it through Chinese-built HPAL and smelting capacity. China supplied 96.6% of Korea's cathode precursor imports in 2023, the most concentrated battery input Korea buys.", "opp": "o-high", "oppNote": "Korean firms are building precursor plants at home and hold stakes in Indonesian nickel intermediates. Whether that feed can come from outside Chinese-controlled processing at a competitive cost is the open question.", "data": "KITA 2023", "z": 28}, {"sym": "Co", "name": "Cobalt", "des": "s", "risk": "r-high", "riskNote": "The DRC mines roughly three-quarters of world cobalt and China refines most of it. China supplied 83% of Korea's cobalt oxide imports in 2023.", "opp": "o-mod", "oppNote": "Korea holds an ISA exploration contract for cobalt-rich crusts in the western Pacific but no near-term production path. Refining outside China is thin, and lower-cobalt chemistries reduce the stakes.", "data": "KITA 2023, ISA contract records", "z": 27}, {"sym": "Nd", "name": "Neodymium", "des": "s", "risk": "r-high", "riskNote": "China mines about 69% of rare earths and processes up to 90%. About 88% of Korea's NdFeB magnets came from China in 2022, against 31% for Japan. KIEP estimates a rare-earth disruption could cut battery exports by 10.8% and auto-part exports by 24.2%.", "opp": "o-high", "oppNote": "KIGAM's K-Plant targets light and heavy rare-earth separation from ore by 2030 with deposit-holding partner countries, and LS Eco Energy is building a rare-earth metal plant in Vietnam with Lynas feed. Separation and magnet-making are the steps Korea would still need.", "data": "GlobalData 2026, KITA 2023, KIEP 2025", "z": 60}, {"sym": "Pr", "name": "Praseodymium", "des": "u", "risk": "r-high", "riskNote": "Co-produced and sold with neodymium as NdPr oxide, so its exposure mirrors neodymium's. Korea's 2023 list names neodymium but not praseodymium.", "opp": "o-high", "oppNote": "Moves with neodymium through the same separation and metal-making steps.", "data": "GlobalData 2026", "z": 59}, {"sym": "Dy", "name": "Dysprosium", "des": "s", "risk": "r-vhigh", "riskNote": "Heavy rare earth for high-temperature magnet grades. China's April 2025 licensing of dysprosium, terbium and five other medium and heavy rare earths was never suspended, and heavy rare earth exports were still about half their pre-control level in May 2026.", "opp": "o-vhigh", "oppNote": "Heavy rare-earth separation outside China barely exists, so any credible non-Chinese source is valuable. KIGAM's K-Plant and its western Pacific surveys are Korea's starting points.", "data": "MOFCOM 2025, Reuters May 2026", "z": 66}, {"sym": "Tb", "name": "Terbium", "des": "s", "risk": "r-vhigh", "riskNote": "Same position as dysprosium. It is covered by China's April 2025 licensing, which remains in force, and export volumes have stayed well below pre-control levels.", "opp": "o-vhigh", "oppNote": "Same position as dysprosium, in the smallest and most concentrated of the magnet rare-earth markets.", "data": "MOFCOM 2025, Reuters May 2026", "z": 65}, {"sym": "La", "name": "Lanthanum", "des": "s", "risk": "r-mod", "riskNote": "More abundant and more diversified at the mine than the magnet rare earths, but separation is still China-weighted. Korea's refining sector uses lanthanum in cracking catalysts, one plausible reason it is designated strategic.", "opp": "o-mod", "oppNote": "Comes out of the same separation circuits as neodymium, so it follows progress there.", "data": "MOTIE 2023 designation", "z": 57}, {"sym": "Ce", "name": "Cerium", "des": "s", "risk": "r-mod", "riskNote": "The most abundant rare earth, yet high-purity ceria is China-refined. Memory and display fabs consume ceria slurry for polishing, which helps explain why Korea designates cerium strategic when abundance alone would not.", "opp": "o-mod", "oppNote": "A co-product of any rare-earth separation. Korea's stake is polishing-grade ceria for its fabs.", "data": "MOTIE 2023 designation", "z": 58}, {"sym": "Nb", "name": "Niobium", "des": "c", "risk": "r-mod", "riskNote": "Brazil's CBMM supplies about 90% of world niobium. POSCO and the National Pension Service took 5% of CBMM for $650 million in 2011 alongside four Japanese partners, and POSCO holds a long-term supply agreement.", "opp": "o-low", "oppNote": "Already hedged through the CBMM stake, Korea's working precedent for securing supply by co-investing with allies.", "data": "CBMM consortium release, March 2011", "z": 41}, {"sym": "Cu", "name": "Copper", "des": "c", "risk": "r-mod", "riskNote": "Concentrate comes from diversified sources and LS MnM smelts in Korea. The squeeze is economic: the 2026 benchmark treatment charge fell to $0 per tonne and Chinese spot charges went deeply negative by September 2026 as smelting capacity outran mine supply.", "opp": "o-high", "oppNote": "With treatment charges near zero, a custom smelter's margin comes increasingly from by-products such as acid, precious metals, selenium and tellurium. By-product recovery now decides whether Korean copper smelting stays competitive.", "data": "Antofagasta benchmark 2026, Mysteel", "z": 29}, {"sym": "Al", "name": "Aluminum", "des": "c", "risk": "r-low", "riskNote": "Korea relies on imported primary aluminum from a diversified supplier base.", "opp": "o-low", "oppNote": "Primary smelting follows cheap power, which Korea lacks. Not a realistic domestic lever.", "data": "USGS", "z": 13}, {"sym": "Si", "name": "Silicon", "des": "c", "risk": "r-high", "riskNote": "China dominates both metallurgical silicon and polysilicon. Korean solar-grade polysilicon production largely ended in 2020, while SK siltron, the world's fifth-largest wafer maker, depends on high-purity feedstock.", "opp": "o-high", "oppNote": "SK siltron and Korea's memory makers anchor high-purity demand, but polysilicon supply outside China is limited. Korea left solar-grade production in 2020 on cost, so any return depends on a cheaper route.", "data": "IEA, company reporting", "z": 14}, {"sym": "Mg", "name": "Magnesium", "des": "c", "risk": "r-vhigh", "riskNote": "Korea bought all of its magnesium ingot from China in 2021 and 2022. POSCO built a 10 kt/yr plant at Gangneung in 2012, yet the dependency persisted.", "opp": "o-high", "oppNote": "POSCO has built a primary magnesium plant before, and Korea's aluminum-alloy users need the metal. The obstacle has been cost against coal-fired Chinese production.", "data": "Korea Economic Daily 2022, USGS", "z": 12}, {"sym": "Mo", "name": "Molybdenum", "des": "c", "risk": "r-mod", "riskNote": "China, Chile, the US and Peru produce most molybdenum, much of it as a porphyry-copper by-product.", "opp": "o-mod", "oppNote": "Mostly a porphyry-copper by-product. Korea's refineries also generate spent catalysts rich in molybdenum, nickel and vanadium, an existing secondary source.", "data": "USGS", "z": 42}, {"sym": "V", "name": "Vanadium", "des": "c", "risk": "r-high", "riskNote": "China and Russia dominate vanadium supply, largely from steel slag and titanomagnetite.", "opp": "o-mod", "oppNote": "Korea's steel and refining sectors generate vanadium-bearing slag, fly ash and spent catalysts, so domestic secondary supply is possible where recovery pays.", "data": "USGS", "z": 23}, {"sym": "Pt", "name": "Platinum", "des": "c", "risk": "r-high", "riskNote": "South Africa produces about 70% of world platinum.", "opp": "o-mod", "oppNote": "Korea's copper refiners recover precious metals from anode slimes, and Hyundai's fuel-cell vehicles add demand. Recycling is the main lever.", "data": "USGS", "z": 78}, {"sym": "Pd", "name": "Palladium", "des": "c", "risk": "r-high", "riskNote": "Russia is the largest producer, followed by South Africa, a sharper geopolitical exposure than platinum's.", "opp": "o-mod", "oppNote": "Same position as platinum.", "data": "USGS", "z": 46}, {"sym": "Sn", "name": "Tin", "des": "c", "risk": "r-mod", "riskNote": "China, Indonesia and Myanmar dominate, and Myanmar's Wa State output has been disrupted since 2023. Tin solder sits in every electronics product.", "opp": "o-mod", "oppNote": "Korea has no tin mining. Recovery from tailings and scrap is the realistic route to diversify.", "data": "USGS", "z": 50}, {"sym": "Ti", "name": "Titanium", "des": "c", "risk": "r-mod", "riskNote": "Korea imports titanium sponge and mill products. Sponge is a Kroll-process oligopoly led by China, Japan, Russia and Kazakhstan.", "opp": "o-high", "oppNote": "Korean aerospace and defense demand is growing, while sponge supply sits with a handful of producers using a batch process that dates to the 1940s. New sponge capacity outside China would find Korean buyers.", "data": "USGS", "z": 22}, {"sym": "W", "name": "Tungsten", "des": "c", "risk": "r-high", "riskNote": "China supplied 69.8% of Korea's tungsten imports in 2025, about $170 million of $244 million. Tungsten sits inside memory chips as word lines and contacts, in carbide tooling and in munitions. Sangdong in Gangwon produced its first export-ready concentrate in September 2026.", "opp": "o-high", "oppNote": "Sangdong makes Korea a tungsten producer again for the first time since the mine closed in 1994. The remaining step is converting concentrate to APT and oxide, which Almonty plans at Yeongwol and which China dominates today.", "data": "KOMIS 2025 via The Diplomat, Almonty 2026", "z": 74}, {"sym": "Sb", "name": "Antimony", "des": "c", "risk": "r-mod", "riskNote": "China's share of Korea's antimony imports fell from 69% in 2024 to 27% in 2025, with Thailand at 49%. China also imports Thai and Myanmar concentrate, so the shift may reflect where antimony was last processed rather than where it was mined. Korea Zinc refines antimony in Korea and expects to ship more than 240 t to the US in 2026.", "opp": "o-high", "oppNote": "Korea Zinc already recovers antimony from its lead and zinc circuits and exports to the US. What import statistics cannot show is where the metal was mined, which only smelter-level verification can establish.", "data": "KOMIS 2025 via The Diplomat, Korea Herald 2026", "z": 51}, {"sym": "Bi", "name": "Bismuth", "des": "c", "risk": "r-mod", "riskNote": "China dominates refined bismuth, a lead-refining by-product, and has added it to its export controls.", "opp": "o-mod", "oppNote": "Recovered in lead refining, which Korea Zinc runs at scale.", "data": "USGS, Korea Herald 2026", "z": 83}, {"sym": "Cr", "name": "Chromium", "des": "c", "risk": "r-mod", "riskNote": "South Africa supplies close to half of world chromite, with Kazakhstan, Turkey and India next. Korean stainless steel depends on it.", "opp": "o-low", "oppNote": "Stainless recycling is mature and no distinctive Korean lever stands out.", "data": "USGS", "z": 24}, {"sym": "Pb", "name": "Lead", "des": "c", "risk": "r-low", "riskNote": "Korea Zinc is the world's largest zinc and lead smelter.", "opp": "o-mod", "oppNote": "Lead refining is a Korean strength and a carrier for silver, bismuth and antimony.", "data": "Korea Herald 2026", "z": 82}, {"sym": "Zn", "name": "Zinc", "des": "c", "risk": "r-low", "riskNote": "Korea Zinc's Onsan complex anchors supply, fed by imported concentrate from diversified sources.", "opp": "o-high", "oppNote": "Zinc residues carry indium, germanium and gallium, and Onsan already recovers several of them. Korea's zinc smelting doubles as its platform for the minor metals it most needs.", "data": "Korea Herald 2026", "z": 30}, {"sym": "Ga", "name": "Gallium", "des": "c", "risk": "r-mod", "riskNote": "China's share of Korea's gallium imports rose to 73.6% in 2024 as buyers stockpiled ahead of controls, then fell to 26% in 2025, with Germany, the US and Japan filling most of the gap. Primary gallium is still almost entirely Chinese.", "opp": "o-high", "oppNote": "Korea Zinc targets 15.5 t/yr by 2028 from zinc-circuit residues, which would give Korea domestic supply of a metal China dominates.", "data": "KOMIS 2025 via The Diplomat, Korea Herald 2026", "z": 31}, {"sym": "Ge", "name": "Germanium", "des": "u", "risk": "r-mod", "riskNote": "Not on Korea's 2023 list, yet exposed through fiber, infrared optics and SiGe chips. China's share of Korea's germanium imports fell from 59% in 2023 to 15% in 2025 as Canada took 71%.", "opp": "o-high", "oppNote": "Korea Zinc is building a germanium plant at Onsan, about 140 billion won, with mass production due in 2027.", "data": "KOMIS 2025 via The Diplomat, Korea Herald 2026", "z": 32}, {"sym": "In", "name": "Indium", "des": "c", "risk": "r-vhigh", "riskNote": "China supplied 94.2% of Korea's indium imports in 2025, up from 44% in 2015, about $86.5 million in all. Korea Zinc refines indium at Onsan, which suggests the gap is partly offtake and product form rather than refining capability.", "opp": "o-high", "oppNote": "Indium comes almost only from zinc sulfide processing, and Korea Zinc already refines it. Linking domestic output to domestic display makers is the opportunity.", "data": "KOMIS 2025 via The Diplomat", "z": 49}, {"sym": "Ta", "name": "Tantalum", "des": "c", "risk": "r-mod", "riskNote": "Central African artisanal supply remains large alongside Brazil, Australia and Nigeria. Used in chip barrier layers and capacitors.", "opp": "o-mod", "oppNote": "Often a by-product of lithium pegmatite mining, so the spodumene supply chains Korea already buys from are a possible source.", "data": "USGS", "z": 73}, {"sym": "Zr", "name": "Zirconium", "des": "c", "risk": "r-high", "riskNote": "Zircon mining is concentrated in Australia and South Africa, and zirconium chemicals are China-dominated. Korea uses zirconium in nuclear fuel cladding and DRAM dielectrics, and hafnium separated from it in chip gate stacks and reactor control rods.", "opp": "o-mod", "oppNote": "Nuclear fuel and memory give Korea steady demand, but zirconium chemicals and zirconium-hafnium separation outside China are thin.", "data": "USGS", "z": 40}, {"sym": "Sr", "name": "Strontium", "des": "c", "risk": "r-mod", "riskNote": "Celestine comes mainly from Spain, Iran, Mexico and China, and China dominates strontium carbonate processing. Used in ferrite magnets and aluminum alloys.", "opp": "o-low", "oppNote": "A small market with no distinctive Korean lever.", "data": "USGS", "z": 38}, {"sym": "Se", "name": "Selenium", "des": "c", "risk": "r-mod", "riskNote": "Recovered from copper refinery anode slimes, so supply tracks copper refining, which China increasingly dominates.", "opp": "o-mod", "oppNote": "Korea's copper refiners generate the anode slimes it comes from, so part of the supply is already in Korean hands.", "data": "USGS", "z": 34}, {"sym": "He", "name": "Helium", "des": "u", "risk": "r-vhigh", "riskNote": "Korea took 64.7% of its 2025 helium from Qatar. The March 2026 Ras Laffan outage removed roughly a third of world supply and hit memory fabs first. Not on Korea's 2023 list.", "opp": "o-low", "oppNote": "A natural-gas by-product with no substitute in cryogenic uses. The levers are contracts, storage and in-fab recycling, which Samsung and SK hynix are pursuing.", "data": "Fitch, TrendForce, Digitimes 2026", "z": 2}, {"sym": "F", "name": "Fluorine", "des": "u", "risk": "r-mod", "riskNote": "After the 2019 export restrictions on semiconductor fluorine materials, Korea localized high-purity hydrogen fluoride within months, and reliance on Japan for HF fell from about 44% to 12% in a year. The fix moved the dependency upstream: China supplied about 60% of Korea's semiconductor HF imports in late 2019 and mines most of the world's fluorspar.", "opp": "o-low", "oppNote": "Already a Korean success in purification. The residual exposure is fluorspar and anhydrous HF feed, which trade on world markets.", "data": "Korea JoongAng Daily 2020, ETNews 2019", "z": 9}];
+  var PRODUCTS = [{"slug": "memory", "title": "Memory chips (DRAM, NAND, HBM)", "tags": ["e", "p"], "context": "Semiconductor exports reached a record $173.4 billion in 2025, about a quarter of all Korean exports. Samsung and SK hynix are the world's largest memory makers, and memory fabrication is unusually helium- and tungsten-intensive.", "bom": [{"mat": "Silicon", "role": "wafer substrate, from SK siltron and others", "syms": ["Si"]}, {"mat": "Tungsten", "role": "word lines and contacts, deposited from WF6", "syms": ["W"]}, {"mat": "Copper", "role": "interconnect", "syms": ["Cu"]}, {"mat": "Tantalum", "role": "interconnect barrier layers", "syms": ["Ta"]}, {"mat": "Zirconium and hafnium", "role": "high-k dielectrics in DRAM capacitors and gates", "syms": ["Zr"]}, {"mat": "Ceria slurry", "role": "chemical-mechanical polishing", "syms": ["Ce"], "tool": true}, {"mat": "Hydrogen fluoride", "role": "etch and clean", "syms": ["F"], "tool": true}, {"mat": "Helium", "role": "cooling and purge gas", "syms": ["He"], "tool": true}]}, {"slug": "cells", "title": "EV and ESS battery cells", "tags": ["e", "p"], "context": "LG Energy Solution, Samsung SDI and SK On gave Korea about a fifth of global battery production in 2024. Battery exports fell about 12% in the first eleven months of 2025.", "bom": [{"mat": "Lithium", "role": "cathode active material", "syms": ["Li"]}, {"mat": "Nickel, cobalt, manganese", "role": "NCM cathodes", "syms": ["Ni", "Co", "Mn"]}, {"mat": "Graphite", "role": "anode", "syms": ["C"]}, {"mat": "Silicon", "role": "anode additive", "syms": ["Si"]}, {"mat": "Copper foil", "role": "anode current collector", "syms": ["Cu"]}, {"mat": "Aluminum", "role": "cathode current collector and casing", "syms": ["Al"]}, {"mat": "LiPF6 salt", "role": "electrolyte, fluorine chemistry", "syms": ["F"]}]}, {"slug": "batmat", "title": "Battery materials: precursor, cathode, anode, lithium chemicals", "tags": ["e"], "context": "POSCO Future M, EcoPro, LG Chem and L&F make cathode in Korea, but 96.6% of precursor imports came from China in 2023. POSCO's hydroxide plants and LG Chem's Saemangeum precursor project are the domestic hedges.", "bom": [{"mat": "Lithium hydroxide", "role": "about 80% China-sourced in 2023", "syms": ["Li"]}, {"mat": "NCM precursor", "role": "96.6% China-sourced in 2023", "syms": ["Ni", "Co", "Mn"]}, {"mat": "Cobalt oxide", "role": "83% China-sourced in 2023", "syms": ["Co"]}, {"mat": "Manganese sulfate", "role": "China-refined", "syms": ["Mn"]}, {"mat": "Spherical graphite", "role": "anode feed, largely Chinese", "syms": ["C"]}]}, {"slug": "cars", "title": "Passenger vehicles (ICE, hybrid, EV)", "tags": ["e"], "context": "Car exports reached a record $72 billion in 2025. The electrified mix pulls in most of the materials on this page.", "bom": [{"mat": "Steel", "role": "body and structure, galvanized with zinc", "syms": ["Zn"]}, {"mat": "Aluminum and magnesium alloys", "role": "lightweighting and die castings", "syms": ["Al", "Mg"]}, {"mat": "Copper", "role": "wiring harness and motor windings", "syms": ["Cu"]}, {"mat": "NdFeB magnets", "role": "traction and actuator motors, about 88% China-sourced", "syms": ["Nd", "Pr", "Dy", "Tb"]}, {"mat": "Battery pack", "role": "lithium, nickel, cobalt, manganese and graphite", "syms": ["Li", "Ni", "Co", "Mn", "C"]}, {"mat": "Platinum-group metals", "role": "catalytic converters and fuel cells", "syms": ["Pt", "Pd"]}, {"mat": "Ferrite magnets", "role": "auxiliary motors", "syms": ["Sr"]}, {"mat": "Lead", "role": "12-volt batteries", "syms": ["Pb"]}]}, {"slug": "parts", "title": "Auto parts and motors", "tags": ["e"], "context": "Traded separately from finished cars. KIEP estimated a rare-earth disruption could cut auto-part exports by 24.2%, more than double its 10.8% estimate for batteries.", "bom": [{"mat": "NdFeB magnets", "role": "steering, actuator and drive motors", "syms": ["Nd", "Pr"]}, {"mat": "Dysprosium and terbium", "role": "high-temperature magnet grades", "syms": ["Dy", "Tb"]}, {"mat": "Aluminum", "role": "castings", "syms": ["Al"]}, {"mat": "Silicon", "role": "control electronics", "syms": ["Si"]}, {"mat": "Copper", "role": "windings", "syms": ["Cu"]}, {"mat": "Tungsten carbide", "role": "machining tools", "syms": ["W"], "tool": true}]}, {"slug": "ships", "title": "Ships, including LNG carriers", "tags": ["e", "d", "p"], "context": "Ship exports rose nearly a quarter to about $32 billion in 2025. Korean yards have long built most of the world's LNG carriers, and naval cooperation with the US adds a defense dimension.", "bom": [{"mat": "Steel plate", "role": "hull, bulk and diversified, not profiled", "syms": []}, {"mat": "Nickel", "role": "9% nickel steel and Invar for LNG containment", "syms": ["Ni"]}, {"mat": "Chromium and molybdenum", "role": "stainless membranes and alloys", "syms": ["Cr", "Mo"]}, {"mat": "Copper", "role": "wiring and piping", "syms": ["Cu"]}]}, {"slug": "steel", "title": "Steel: flat, stainless and specialty", "tags": ["e"], "context": "POSCO and Hyundai Steel supply the shipyards, carmakers and appliance makers on this page. Steel exports fell about 9% through November 2025 amid global oversupply.", "bom": [{"mat": "Iron ore and coking coal", "role": "bulk and diversified, not profiled", "syms": []}, {"mat": "Manganese", "role": "deoxidation and alloying", "syms": ["Mn"]}, {"mat": "Chromium and nickel", "role": "stainless grades", "syms": ["Cr", "Ni"]}, {"mat": "Molybdenum and vanadium", "role": "high-strength and tool steels", "syms": ["Mo", "V"]}, {"mat": "Niobium", "role": "micro-alloying, secured through the CBMM stake", "syms": ["Nb"]}, {"mat": "Zinc", "role": "galvanizing", "syms": ["Zn"]}, {"mat": "Magnesium", "role": "desulfurization", "syms": ["Mg"], "tool": true}]}, {"slug": "displays", "title": "Displays (OLED, LCD)", "tags": ["e", "p"], "context": "Samsung Display and LG Display lead the OLED market. Displays carry Korea's most concentrated single mineral import: indium, 94.2% China-sourced in 2025.", "bom": [{"mat": "Indium", "role": "ITO electrodes and IGZO backplanes", "syms": ["In"]}, {"mat": "Gallium and zinc", "role": "IGZO oxide semiconductor", "syms": ["Ga", "Zn"]}, {"mat": "Molybdenum", "role": "electrodes and sputtering targets", "syms": ["Mo"]}, {"mat": "Copper", "role": "bus lines", "syms": ["Cu"]}, {"mat": "Ceria", "role": "glass polishing", "syms": ["Ce"], "tool": true}]}, {"slug": "phones", "title": "Smartphones and electronics", "tags": ["e"], "context": "Handsets, wearables and their components concentrate small, hard-to-substitute inputs.", "bom": [{"mat": "Tantalum", "role": "capacitors", "syms": ["Ta"]}, {"mat": "NdFeB magnets", "role": "speakers, haptics and camera actuators", "syms": ["Nd", "Pr"]}, {"mat": "Tin and bismuth", "role": "lead-free solder", "syms": ["Sn", "Bi"]}, {"mat": "Indium", "role": "touchscreen conductors", "syms": ["In"]}, {"mat": "Gallium", "role": "RF front-end chips", "syms": ["Ga"]}, {"mat": "Lithium and cobalt", "role": "battery", "syms": ["Li", "Co"]}, {"mat": "Lanthanum", "role": "high-index camera-lens glass", "syms": ["La"]}]}, {"slug": "defense", "title": "Defense systems", "tags": ["d", "e"], "context": "Tanks, artillery, munitions, radar and aircraft are a growing export line, and they depend on the materials China licenses most tightly. Samarium, used in SmCo magnets, is under China's April 2025 controls but is not on Korea's 2023 list.", "bom": [{"mat": "Tungsten", "role": "penetrators and armor, plus carbide tooling", "syms": ["W"]}, {"mat": "Antimony", "role": "primers and ammunition", "syms": ["Sb"]}, {"mat": "Titanium", "role": "airframes", "syms": ["Ti"]}, {"mat": "Gallium", "role": "GaN radar and electronic warfare", "syms": ["Ga"]}, {"mat": "Germanium", "role": "infrared optics", "syms": ["Ge"]}, {"mat": "Rare-earth magnets", "role": "actuators and guidance", "syms": ["Nd", "Dy", "Tb"]}, {"mat": "Nickel superalloys", "role": "engine hot sections", "syms": ["Ni", "Co"]}, {"mat": "Vanadium and molybdenum", "role": "armor steel", "syms": ["V", "Mo"]}]}, {"slug": "nuclear", "title": "Nuclear reactors and fuel", "tags": ["e", "d"], "context": "KEPCO built the four-unit Barakah plant in the UAE on the Korean APR1400 design. Fuel and reactor internals rest on zirconium and nickel alloys.", "bom": [{"mat": "Zirconium alloys", "role": "fuel cladding", "syms": ["Zr"]}, {"mat": "Niobium", "role": "zirconium-niobium cladding alloys", "syms": ["Nb"]}, {"mat": "Hafnium", "role": "control rods, separated from zirconium, not profiled", "syms": []}, {"mat": "Nickel alloys", "role": "steam generator tubes and internals", "syms": ["Ni"]}, {"mat": "Chromium", "role": "stainless internals", "syms": ["Cr"]}, {"mat": "Uranium", "role": "fuel, outside this materials set", "syms": []}]}, {"slug": "smelting", "title": "Non-ferrous smelting and by-product metals", "tags": ["p", "d", "e"], "context": "Korea Zinc is the world's largest zinc and lead smelter and recovers antimony, indium, tellurium, cadmium and germanium at Onsan. Its Tennessee smelter, with the US Department of Defense holding 40% of the joint venture, starts phased operation from 2029. LS MnM smelts copper.", "bom": [{"mat": "Zinc and lead concentrate", "role": "primary feed", "syms": ["Zn", "Pb"]}, {"mat": "Copper concentrate", "role": "smelted by LS MnM", "syms": ["Cu"]}, {"mat": "Antimony and bismuth", "role": "lead-circuit co-products", "syms": ["Sb", "Bi"]}, {"mat": "Indium, germanium and gallium", "role": "zinc-circuit co-products", "syms": ["In", "Ge", "Ga"]}, {"mat": "Selenium and tellurium", "role": "anode-slime co-products", "syms": ["Se"]}, {"mat": "Precious metals", "role": "anode-slime co-products", "syms": ["Pt", "Pd"]}]}, {"slug": "tungsten", "title": "Tungsten concentrate (Sangdong)", "tags": ["p", "d"], "context": "Phase 1 was commissioned in March 2026, sized for about 640 kt of ore and 2,300 t of concentrate a year, and the first export-ready concentrate came off in September 2026. Almonty, the Nasdaq-listed operator, plans an oxide plant at Yeongwol.", "bom": [{"mat": "Scheelite ore", "role": "skarn-hosted, the sole major input", "syms": ["W"]}, {"mat": "Oxide conversion", "role": "planned at Yeongwol, the step China dominates", "syms": ["W"]}]}];
+  var PT = [["H", 1, 1, 1], ["He", 2, 1, 18], ["Li", 3, 2, 1], ["Be", 4, 2, 2], ["B", 5, 2, 13], ["C", 6, 2, 14], ["N", 7, 2, 15], ["O", 8, 2, 16], ["F", 9, 2, 17], ["Ne", 10, 2, 18], ["Na", 11, 3, 1], ["Mg", 12, 3, 2], ["Al", 13, 3, 13], ["Si", 14, 3, 14], ["P", 15, 3, 15], ["S", 16, 3, 16], ["Cl", 17, 3, 17], ["Ar", 18, 3, 18], ["K", 19, 4, 1], ["Ca", 20, 4, 2], ["Sc", 21, 4, 3], ["Ti", 22, 4, 4], ["V", 23, 4, 5], ["Cr", 24, 4, 6], ["Mn", 25, 4, 7], ["Fe", 26, 4, 8], ["Co", 27, 4, 9], ["Ni", 28, 4, 10], ["Cu", 29, 4, 11], ["Zn", 30, 4, 12], ["Ga", 31, 4, 13], ["Ge", 32, 4, 14], ["As", 33, 4, 15], ["Se", 34, 4, 16], ["Br", 35, 4, 17], ["Kr", 36, 4, 18], ["Rb", 37, 5, 1], ["Sr", 38, 5, 2], ["Y", 39, 5, 3], ["Zr", 40, 5, 4], ["Nb", 41, 5, 5], ["Mo", 42, 5, 6], ["Tc", 43, 5, 7], ["Ru", 44, 5, 8], ["Rh", 45, 5, 9], ["Pd", 46, 5, 10], ["Ag", 47, 5, 11], ["Cd", 48, 5, 12], ["In", 49, 5, 13], ["Sn", 50, 5, 14], ["Sb", 51, 5, 15], ["Te", 52, 5, 16], ["I", 53, 5, 17], ["Xe", 54, 5, 18], ["Cs", 55, 6, 1], ["Ba", 56, 6, 2], ["Hf", 72, 6, 4], ["Ta", 73, 6, 5], ["W", 74, 6, 6], ["Re", 75, 6, 7], ["Os", 76, 6, 8], ["Ir", 77, 6, 9], ["Pt", 78, 6, 10], ["Au", 79, 6, 11], ["Hg", 80, 6, 12], ["Tl", 81, 6, 13], ["Pb", 82, 6, 14], ["Bi", 83, 6, 15], ["Po", 84, 6, 16], ["At", 85, 6, 17], ["Rn", 86, 6, 18], ["Fr", 87, 7, 1], ["Ra", 88, 7, 2], ["Rf", 104, 7, 4], ["Db", 105, 7, 5], ["Sg", 106, 7, 6], ["Bh", 107, 7, 7], ["Hs", 108, 7, 8], ["Mt", 109, 7, 9], ["Ds", 110, 7, 10], ["Rg", 111, 7, 11], ["Cn", 112, 7, 12], ["Nh", 113, 7, 13], ["Fl", 114, 7, 14], ["Mc", 115, 7, 15], ["Lv", 116, 7, 16], ["Ts", 117, 7, 17], ["Og", 118, 7, 18], ["La", 57, 9, 3], ["Ce", 58, 9, 4], ["Pr", 59, 9, 5], ["Nd", 60, 9, 6], ["Pm", 61, 9, 7], ["Sm", 62, 9, 8], ["Eu", 63, 9, 9], ["Gd", 64, 9, 10], ["Tb", 65, 9, 11], ["Dy", 66, 9, 12], ["Ho", 67, 9, 13], ["Er", 68, 9, 14], ["Tm", 69, 9, 15], ["Yb", 70, 9, 16], ["Lu", 71, 9, 17], ["Ac", 89, 10, 3], ["Th", 90, 10, 4], ["Pa", 91, 10, 5], ["U", 92, 10, 6], ["Np", 93, 10, 7], ["Pu", 94, 10, 8], ["Am", 95, 10, 9], ["Cm", 96, 10, 10], ["Bk", 97, 10, 11], ["Cf", 98, 10, 12], ["Es", 99, 10, 13], ["Fm", 100, 10, 14], ["Md", 101, 10, 15], ["No", 102, 10, 16], ["Lr", 103, 10, 17]];
+
+  var BY = {}; DATA.forEach(function (e) { BY[e.sym] = e; });
+  var PBY = {}; PRODUCTS.forEach(function (p) { PBY[p.slug] = p; });
+  var TAGS = { e: "Economic", d: "Defense", p: "Positional" };
+  var DES = { s: "Korea strategic mineral (2023)", c: "Korea critical mineral (2023)", u: "Not on Korea's 2023 list" };
+  var DES_SHORT = { s: "Strategic", c: "Critical", u: "Not on 2023 list" };
+  var LENS = {
+    risk: { attr: "risk", order: ["r-vhigh", "r-high", "r-mod", "r-low"],
+      label: { "r-vhigh": "Very high", "r-high": "High", "r-mod": "Moderate", "r-low": "Low or Korean strength" },
+      desc: "How exposed Korea is if this supply breaks, judged from import concentration, processing concentration and live export controls." },
+    opp: { attr: "opp", order: ["o-vhigh", "o-high", "o-mod", "o-low"],
+      label: { "o-vhigh": "Very high", "o-high": "High", "o-mod": "Moderate", "o-low": "Low or mature" },
+      desc: "Whether Korea has a credible way to reduce the exposure, through processing, by-product recovery, new supply or partnerships, with Korean industry as a plausible mover. It runs independently of risk: zinc is low-risk and high-opportunity, while helium is very high-risk with little room to act." }
+  };
+  var RISK_RANK = { "r-vhigh": 4, "r-high": 3, "r-mod": 2, "r-low": 1 };
+
+  var lens = "risk";
+  var mq = window.matchMedia ? window.matchMedia("(max-width: 720px)") : { matches: false };
+  var view = mq.matches ? "list" : "table";
+  var selected = null;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function setHash(h) { try { history.replaceState(null, "", "#" + h); } catch (err) { /* viewer may block history */ } }
+  function scrollBehavior() { return reduce ? "auto" : "smooth"; }
+
+  // Derived: where each element is used
+  var USED = {};
+  PRODUCTS.forEach(function (p) {
+    p.bom.forEach(function (row) {
+      (row.syms || []).forEach(function (s) {
+        if (!USED[s]) USED[s] = [];
+        if (!USED[s].some(function (u) { return u.slug === p.slug; })) USED[s].push({ slug: p.slug, role: row.role, mat: row.mat });
+      });
+    });
+  });
+  function keyElements(p) {
+    var out = [];
+    p.bom.forEach(function (row) { (row.syms || []).forEach(function (s) { if (out.indexOf(s) < 0) out.push(s); }); });
+    return out;
+  }
+  function maxRisk(syms) {
+    var best = null;
+    (syms || []).forEach(function (s) { var e = BY[s]; if (e && (!best || RISK_RANK[e.risk] > RISK_RANK[best])) best = e.risk; });
+    return best;
+  }
+
+  // Tabs
+  var TABNAMES = ["overview", "products", "elements"];
+  function showTab(name, keepHash) {
+    hideTip();
+    TABNAMES.forEach(function (t) {
+      $("pane-" + t).classList.toggle("active", t === name);
+      $("tab-" + t).setAttribute("aria-selected", t === name ? "true" : "false");
+    });
+    if (!keepHash) setHash(name);
+  }
+  TABNAMES.forEach(function (t) {
+    $("tab-" + t).addEventListener("click", function () { showTab(t); window.scrollTo({ top: 0, behavior: "auto" }); });
+  });
+
+  // Chips
+  function elChipHTML(sym, sub) {
+    var e = BY[sym];
+    if (!e) return esc(sym);
+    return '<span class="cd ' + e.risk + '"></span>' + esc(e.name) + (sub ? ' <span class="sub2">' + esc(sub) + "</span>" : "");
+  }
+  function hydrateChips(root) {
+    root.querySelectorAll(".chip[data-el]").forEach(function (c) {
+      if (!c.innerHTML) c.innerHTML = elChipHTML(c.getAttribute("data-el"));
+      c.setAttribute("role", "button"); c.tabIndex = 0;
+    });
+    root.querySelectorAll(".chip[data-prod]").forEach(function (c) {
+      var p = PBY[c.getAttribute("data-prod")];
+      if (p && !c.innerHTML) c.textContent = p.title;
+      c.setAttribute("role", "button"); c.tabIndex = 0;
+    });
+  }
+  document.addEventListener("click", function (ev) {
+    var c = ev.target.closest ? ev.target.closest(".chip") : null;
+    if (!c) return;
+    if (c.hasAttribute("data-el")) goToElement(c.getAttribute("data-el"));
+    else if (c.hasAttribute("data-prod")) goToProduct(c.getAttribute("data-prod"));
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape") closeSheet();
+    var c = ev.target;
+    if ((ev.key === "Enter" || ev.key === " ") && c.classList && c.classList.contains("chip")) { ev.preventDefault(); c.click(); }
+  });
+
+  // Products
+  var TAGORDER = ["e", "d", "p"];
+  function tagsHTML(tags) { return tags.slice().sort(function (a, b) { return TAGORDER.indexOf(a) - TAGORDER.indexOf(b); }).map(function (t) { return '<span class="tag ' + t + '">' + TAGS[t] + "</span>"; }).join(""); }
+  function renderProducts() {
+    var tb = $("candbody"), cards = $("cards"), rows = [], html = [];
+    PRODUCTS.forEach(function (p) {
+      rows.push('<tr class="candrow" data-slug="' + p.slug + '" tabindex="0"><td>' + esc(p.title) + "</td><td>" + tagsHTML(p.tags) + "</td></tr>");
+      var chips = keyElements(p).map(function (s) { return '<span class="chip" data-el="' + s + '"></span>'; }).join("");
+      var bom = p.bom.map(function (row) {
+        var r = maxRisk(row.syms);
+        var cls = "dot" + (row.tool ? " tool" : "") + (r ? " " + r : (row.tool ? "" : " none"));
+        return '<div class="bom-row"><span class="' + cls + '"></span><span class="bom-mat">' + esc(row.mat) + '</span><span class="bom-role">' + esc(row.role) + (row.tool ? ' <span class="pi">(process input)</span>' : "") + "</span></div>";
+      }).join("");
+      html.push('<article class="card" id="card-' + p.slug + '"><div class="card-head"><h3 class="card-title">' + esc(p.title) + "</h3><div>" + tagsHTML(p.tags) + '</div></div><p class="card-context">' + esc(p.context) + '</p><div><span class="chips-label">Key elements</span>' + chips + '</div><div class="bom-label">Bill of materials</div><div class="bom">' + bom + "</div></article>");
+    });
+    tb.innerHTML = rows.join("");
+    cards.innerHTML = html.join("");
+    tb.querySelectorAll(".candrow").forEach(function (tr) {
+      var go = function () { goToProduct(tr.getAttribute("data-slug")); };
+      tr.addEventListener("click", go);
+      tr.addEventListener("keydown", function (ev) { if (ev.key === "Enter") go(); });
+    });
+  }
+  function goToProduct(slug, fromHash) {
+    if (!PBY[slug]) return;
+    closeSheet();
+    showTab("products", true);
+    setHash("prod-" + slug);
+    var card = $("card-" + slug);
+    if (!card) return;
+    setTimeout(function () {
+      card.scrollIntoView({ behavior: fromHash ? "auto" : scrollBehavior(), block: "start" });
+      card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash");
+    }, 30);
+  }
+
+  // Periodic table
+  function cellClass(e) { return e[LENS[lens].attr]; }
+  function renderTable() {
+    var t = $("ptable"), out = [];
+    PT.forEach(function (p) {
+      var sym = p[0], z = p[1], row = p[2], col = p[3], e = BY[sym];
+      var style = 'style="grid-row:' + row + ";grid-column:" + col + '"';
+      if (e) {
+        var lab = e.name + ", " + LENS.risk.label[e.risk].toLowerCase() + " sourcing risk";
+        out.push('<button class="cell tracked ' + cellClass(e) + (e.des === "u" ? " unlisted" : "") + (selected === sym ? " sel" : "") + '" data-sym="' + sym + '" ' + style + ' aria-label="' + esc(lab) + '"><span class="z">' + z + '</span><span class="sym">' + sym + "</span>" + (e.des === "s" ? '<span class="mk"></span>' : "") + "</button>");
+      } else {
+        out.push('<div class="cell placeholder" ' + style + ' aria-hidden="true"><span class="z">' + z + '</span><span class="sym">' + sym + "</span></div>");
+      }
+    });
+    out.push('<div class="fblock-label" style="grid-row:9">Lanthanides</div>');
+    out.push('<div class="fblock-label" style="grid-row:10">Actinides</div>');
+    t.innerHTML = out.join("");
+    t.querySelectorAll("button.cell").forEach(function (b) {
+      b.addEventListener("click", function () { hideTip(); selectElement(b.getAttribute("data-sym")); });
+      if (finePointer) {
+        b.addEventListener("mouseenter", function (ev) { showTip(ev, b.getAttribute("data-sym")); });
+        b.addEventListener("mousemove", moveTip);
+        b.addEventListener("mouseleave", hideTip);
+      }
+    });
+  }
+
+  // List view
+  function renderList() {
+    var L = LENS[lens], groups = {}, out = [];
+    L.order.forEach(function (k) { groups[k] = []; });
+    DATA.forEach(function (e) { groups[e[L.attr]].push(e); });
+    L.order.forEach(function (k) {
+      var g = groups[k];
+      if (!g.length) return;
+      g.sort(function (a, b) { return a.z - b.z; });
+      out.push('<div class="egroup"><h4><span class="sw ' + k + '" style="display:inline-block;width:11px;height:11px;border-radius:3px"></span>' + esc(L.label[k]) + ' <span class="ct">' + g.length + "</span></h4>");
+      g.forEach(function (e) {
+        var hint = lens === "risk" ? LENS.opp.label[e.opp] + " opportunity" : LENS.risk.label[e.risk] + " risk";
+        out.push('<button class="erow" data-sym="' + e.sym + '"><span class="tile ' + e[L.attr] + (e.des === "u" ? " unlisted" : "") + '" style="' + (e.des === "u" ? "border:1.5px dashed currentColor" : "") + '">' + e.sym + (e.des === "s" ? '<span class="mk"></span>' : "") + '</span><span><div class="nm">' + esc(e.name) + '</div><div class="ds">' + DES_SHORT[e.des] + '</div></span><span class="hint">' + esc(hint) + "</span></button>");
+      });
+      out.push("</div>");
+    });
+    var el = $("elist");
+    el.innerHTML = out.join("");
+    el.querySelectorAll(".erow").forEach(function (b) { b.addEventListener("click", function () { selectElement(b.getAttribute("data-sym")); }); });
+  }
+
+  function renderLegend() {
+    var L = LENS[lens], counts = {};
+    DATA.forEach(function (e) { counts[e[L.attr]] = (counts[e[L.attr]] || 0) + 1; });
+    $("legend").innerHTML = L.order.map(function (k) {
+      return '<span><span class="sw ' + k + '"></span>' + esc(L.label[k]) + ' <span class="ct">' + (counts[k] || 0) + "</span></span>";
+    }).join("");
+    $("lensdesc").textContent = L.desc;
+  }
+  function setLens(k) {
+    lens = k;
+    document.querySelectorAll("[data-lens]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lens") === k ? "true" : "false"); });
+    renderLegend(); renderTable(); renderList();
+  }
+  function setView(v) {
+    view = v;
+    document.querySelectorAll("[data-view]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-view") === v ? "true" : "false"); });
+    $("tablewrap").classList.toggle("show", v === "table");
+    $("elist").classList.toggle("show", v === "list");
+    $("swipehint").classList.toggle("show", v === "table" && mq.matches);
+  }
+  document.querySelectorAll("[data-lens]").forEach(function (b) { b.addEventListener("click", function () { setLens(b.getAttribute("data-lens")); }); });
+  document.querySelectorAll("[data-view]").forEach(function (b) { b.addEventListener("click", function () { setView(b.getAttribute("data-view")); }); });
+
+  // Detail
+  function tier(cls, text) { return '<span class="tier ' + cls + '">' + esc(text) + "</span>"; }
+  function renderDetail(e) {
+    var used = (USED[e.sym] || []).map(function (u) {
+      return '<span class="chip" data-prod="' + u.slug + '">' + esc(PBY[u.slug].title) + ' <span class="sub2">' + esc(u.role) + "</span></span>";
+    }).join("");
+    $("detail").innerHTML =
+      '<div class="d-head"><h3>' + esc(e.name) + " (" + e.sym + ')</h3><button class="closebtn" type="button" id="closebtn">Close</button></div>' +
+      '<div class="d-meta"><span>Atomic number ' + e.z + '</span><span class="badge">' + esc(DES[e.des]) + "</span></div>" +
+      '<div class="drow"><span class="lbl">Sourcing risk</span><span>' + tier(e.risk, LENS.risk.label[e.risk]) + esc(e.riskNote) + "</span></div>" +
+      '<div class="drow"><span class="lbl">Opportunity</span><span>' + tier(e.opp, LENS.opp.label[e.opp]) + esc(e.oppNote) + "</span></div>" +
+      (used ? '<div class="drow"><span class="lbl">Used in</span><span>' + used + "</span></div>" : "") +
+      '<div class="drow"><span class="lbl">Key sources</span><span style="color:var(--text-muted);font-size:13.4px">' + esc(e.data) + "</span></div>";
+    hydrateChips($("detail"));
+    var cb = $("closebtn"); if (cb) cb.addEventListener("click", closeSheet);
+  }
+  function markSelected() {
+    document.querySelectorAll(".cell.sel").forEach(function (c) { c.classList.remove("sel"); });
+    var c = document.querySelector('.cell[data-sym="' + selected + '"]');
+    if (c) c.classList.add("sel");
+  }
+  function selectElement(sym, opts) {
+    var e = BY[sym];
+    if (!e) return;
+    opts = opts || {};
+    selected = sym;
+    renderDetail(e);
+    markSelected();
+    setHash("el-" + sym);
+    if (mq.matches) { openSheet(); }
+    else if (opts.scroll) { $("detail").scrollIntoView({ behavior: opts.instant ? "auto" : scrollBehavior(), block: "nearest" }); }
+  }
+  function goToElement(sym, fromHash) {
+    if (!BY[sym]) return;
+    showTab("elements", true);
+    selectElement(sym, { scroll: true, instant: !!fromHash });
+    if (!mq.matches) {
+      var c = document.querySelector('.cell[data-sym="' + sym + '"]');
+      if (c && view === "table") c.scrollIntoView({ behavior: "auto", block: "nearest", inline: "center" });
+    }
+  }
+
+  // Mobile sheet
+  function applySheetMode() {
+    var d = $("detail");
+    d.classList.toggle("sheet", mq.matches);
+    if (!mq.matches) { d.classList.remove("open"); $("scrim").classList.remove("open"); document.body.style.overflow = ""; }
+    $("swipehint").classList.toggle("show", view === "table" && mq.matches);
+  }
+  function openSheet() {
+    var d = $("detail");
+    d.classList.add("sheet");
+    requestAnimationFrame(function () { d.classList.add("open"); });
+    $("scrim").classList.add("open");
+    document.body.style.overflow = "hidden";
+    d.scrollTop = 0;
+  }
+  function closeSheet() {
+    var d = $("detail");
+    if (!d.classList.contains("open")) return;
+    d.classList.remove("open");
+    $("scrim").classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  $("scrim").addEventListener("click", closeSheet);
+  if (mq.addEventListener) mq.addEventListener("change", applySheetMode); else if (mq.addListener) mq.addListener(applySheetMode);
+
+  // Tooltip (fine pointers only)
+  var tip = $("tooltip");
+  function showTip(ev, sym) {
+    var e = BY[sym]; if (!e) return;
+    tip.innerHTML = "<b>" + esc(e.name) + "</b><br>Risk: " + esc(LENS.risk.label[e.risk]) + "<br>Opportunity: " + esc(LENS.opp.label[e.opp]);
+    tip.classList.add("show"); moveTip(ev);
+  }
+  function moveTip(ev) {
+    var x = ev.clientX + 14, y = ev.clientY + 14;
+    if (x + 300 > window.innerWidth) x = ev.clientX - 304;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  }
+  function hideTip() { tip.classList.remove("show"); }
+
+  // Deep links: #overview, #products, #elements, #el-W, #prod-memory
+  function applyHash() {
+    var h = (location.hash || "").replace(/^#/, "");
+    if (!h) return;
+    if (h.indexOf("el-") === 0) goToElement(h.slice(3), true);
+    else if (h.indexOf("prod-") === 0) goToProduct(h.slice(5), true);
+    else if (TABNAMES.indexOf(h) >= 0) showTab(h, true);
+  }
+
+  // Init
+  hydrateChips(document);
+  renderProducts();
+  hydrateChips($("cards"));
+  setLens("risk");
+  setView(view);
+  applySheetMode();
+  applyHash();
+  window.addEventListener("hashchange", applyHash);
+})();
+
+</script>
+</body>
+</html>
